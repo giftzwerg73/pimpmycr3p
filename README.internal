@@ -1,0 +1,103 @@
+
+This is alternative firmware for model radio FlySky FS-GT3B/C and clones.
+This software comes with absolutely NO-WARRANTY.
+
+
+
+It is programmed with using possibilities of hardware, using timers,
+interrupts and cooperative multitasking (this is because it is much
+simplier to program it then).
+
+It was written for Cosmic C compiler and will need changes to support
+other compilers.
+
+
+
+
+
+There are 2 interrupts used:
+
+ppm_interrupt
+    - timer3 update interrupt
+    - sets values for next servo channel to timer
+timer_interrupt
+    - timer2 overflow
+    - every 1ms
+	read ADC values
+	increment ppm_timer
+	start new PPM frame with servo pulses
+	wakeups CALC task few ms before start of new PPM frame
+    - every 5ms
+	- increments time from start
+	- count LCD blink time and wakeups task LCD
+	- handles buzzer
+	- wakeups task INPUT
+	- wakeups task MENU when it wants ADC values (calibrate, ...),
+	    this is done every 40ms
+	- handles task MENU delay and wakeups this task
+
+
+
+
+There are 4 tasks:
+
+LCD
+    - is doing actual write to LCD controller
+    - is waked up by lcd_update(), lcd_clear()
+    - is waked up from timer to do automatic blinking
+INPUT
+    - is doing reading key matrix and some ADC checks
+    - is waked up from timer every 5ms
+CALC
+    - is computing values for each servo and sync signal
+    - is waked up from timer few ms before new PPM frame starts
+MENU
+    - is main program handling keys, menus, lcd
+    - is waked up from timer when menu_delay expired or when ADC values needed
+    - is waked up from INPUT task when
+	- buttons state changed
+	- status of battery low changed
+
+
+
+
+Files:
+
+stm8.h		- macros for STM8 handling
+gt3b.h		- global common values
+
+vector.c,h	- table of interrupt vectors
+task.c,h	- cooperative multitasking
+buzzer.c,h	- buzzer
+eeprom.c,h	- eeprom read/write
+timer.c,h	- timer 1ms, 5ms
+input.c,h	- INPUT task, reading ADC and keys
+lcd.c,h		- LCD task, writing to LCD controller, blinking
+ppm.c,h		- generating of PPM signal
+main.c,h	- initialize all and call MENU task
+
+config.c,h	- global and model configuration
+menu.c,h	- MENU task, handling keys, menus, lcd
+  menu_common.c - common menu routines
+  menu_global.c	- global config menus are here
+  menu_popup.c	- handling of trims/keys, showing value
+  menu_service.c- calibrate and key-test menus
+  menu_key.c	- settings mapping of keys
+  menu_mix.c	- setting of mixes (4WS, DIG, ...)
+calc.c,h	- CALC task, calculate PPM values
+
+
+Only last 3 files (more menus counted as one) are used to implement what
+means what button and how it changes signal for servos. Other files are
+sort of libraries (or it can be viewed as a little operating system :-)
+
+
+
+To compile it at windows:
+
+- cd to directory with sources
+- set variable TOOLSET to path to Cosmic C compiler (set TOOLSET=...)
+- if more than 3 channels needed, set variable CHANNELS to number 3..8
+- run compile.bat
+- file gt3b.s19 is newly compiled firmware ready to load to radio
+

@@ -1,0 +1,116 @@
+*0.6.2 ()
+    added global option to select between 1 or 2 detents of rotate encoder,
+	which must be applied to change value
+    for 4WS/DIG/BRAKE, enable it directly after choosing channel, previously
+	it was after leaving menu
+
+*0.6.1 (18 May 2012)
+    repaired ABS to use cycle length same as before PPM frame length changes
+    added extra brake channel for throttle brake side
+    repaired steering/throttle/channel speed to not beeing dependent
+	on ppm frame length
+    added buttons LOCK until ENTER-long to global menu
+    repaired key setting, buttons long RS and EN were unaccesible
+
+*0.6.0 (28 Apr 2012)
+    increased model memories by using FLASH also
+    added more Multi-Positions
+
+*0.5.1 (26 Apr 2012)
+    added possibility to connect potentiometer instead of CH3 button
+
+*0.5.0 (23 Apr 2012)
+    global menu was restructuralized
+    added ability to select number of channels (2-MAX_CHANNELS) for each
+	model, less channels means less delay
+    poweron warn when not-centered now has separate global option
+    added up/down/lap timers with throttle trigger start
+    added BRK button function to override throttle and apply full brake
+    big internal changes handling different menus, key mapping uses
+	2-char option identification instead of various symbols
+    added global option rotate_reverse to switch direction of rotate
+	endoder at GT3C
+    added globally settable PPM constant sync/constant frame + selection
+	of length
+    added new menu to directly set channel 3-8 value
+
+*0.4.2 (13 Apr 2012)
+    added global setting to disable center/reset value beep
+    minimum battery voltage set to 2V for those experimenting with 1S cell
+    PPM signal now uses constant length of SYNC signal to get it to
+	receiver as soon as possible, also servo values are calculated
+	just before generating servo PPM signals to have lowest
+	steering/throttle to PPM signal delay
+    ADC measuring every 1ms, averaging last 4 samples when used,
+	globally settable to use last 4/1 values
+    added poweron beep, can be set ON/OFF in global config
+    at poweron, if steering or throttle are not in center dead zone,
+	beep 3 times if poweron beep is allowed
+    inactivity timer compares ADC values with previous ones, so now
+	it will activate when radio is not center callibrated also
+    added key function BLS to shutup battery low beeper, by default is
+	assigned to END-long
+    3-pos switch instead of CH3 button now works
+
+*0.4.1 (17 Aug 2011)
+
+    minimum battery voltage set to 6V
+    CH3 key set default to OFF
+    added DGR key function to reset DIG mix to centre
+    added posibility to select DIG instead of channel number at MultiPosition
+    added lap count functions assignable to keys
+
+*0.4.0 (18 Jul 2011)
+
+    use steering trim when dual-ESC steering
+    added channel_speed for all channels, throttle channel can be applied only
+	for forward side
+    repaired setting to default values for functions of config-values mapped
+	to trims, this should be done only for non-config values (channel,
+	mix)
+
+*0.3.2 (27 Jun 2011)
+
+    added option throttle brake cut of to be able to drive forward only
+	vehicles (boats)
+    added MultiPosition settable to channel
+
+*0.3.1 (26 Jun 2011)
+
+    DIG mix can be set to channel 1 to have dual-ESC steering (boat, tank, ...)
+
+*0.3.0 (24 Jun 2011)
+
+    added globally settable key long-press delay
+    when using trims, longer beep at value reset and short pause ignoring keys
+    momentary trims/keys now sets value only when state of buttons changed
+	(previously it always forced value to reflect button state), so it is
+	possible to map momentary and non-momentary keys to the same
+	channel/mix value, also value is showed when changed
+    added possibility for momentary trims and 2-state keys to return not
+	to centre/left, but to previous value which was active before button
+	press
+
+*0.2.0 (9 Jun 2011)
+
+    added 4WS mix
+    added DIG mix
+    added steering speed (Turn, Return)
+    added inactivity alarm
+    added function C3R for keys to reset channel3 value to centre
+    internal changes of trims momentary/opposite_reset
+
+*0.1.0 (2 Jun 2011)
+
+    added special chars "-1" and "10" to be able to display values -199...1099
+    both trims-long now only resets, before there was 1 press of first button
+    changed EEPROM init to eliminate broken initialization
+    in menu: use ENTER to switch items and END/ENTER-long to end of edit of item
+    added key mapping to configuration of model and removed coresponding
+      global settings (trim_step, autorepeat, ch3_momentary)
+
+
+*0.0.0 (25 May 2011)
+
+    initial public revision
+

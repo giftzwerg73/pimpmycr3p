@@ -1,0 +1,71 @@
+
+save 4WS mix to model config (selectable)
+add function to disable/enable steering D/R to make it really dualrate
+    (or leave it to extended multi-position ?)
+do one timer model specific (selectable)
+add throttle hold button function
+MultiPosition for all trim functions (except lists == MultiPosition)
+ARC - Adjustable Rate Control
+    - two linear curves with settable point and rate
+    - for steering, forward and back
+steering speed with 2 settings and point where it changes
+losikid
+    ? timer down settings in smaller increments (not whole minutes)
+    ? timer down beeps 60s(1) 30s(2) 15s(3) 10-1s(each) 0s(rapid beeping)
+    ? changing saved value when at momentary-state
+    ? MultiPosition momentary keys + changing values with trims
+    ? default value for DIG mix
+? RS232 communication to get/set global/model config data
+
+? PPM input for head tracking gyro
+    - pin PD7 TLI non-maskable interrupt at signal edge
+    - or pin PD1 (SWIM), PD5, PD6 with pin change interrupt at signal edge
+	- set timer_interrupt and ppm_interrupt to lower level as it
+	  can be interrupted by PPM in signal
+    - read timer register, ppm_timer to cyclic buffer
+	- problem with determining if timer interrupt already incremented
+	  ppm_timer or not
+	    - timer_interrupt
+		- store ppm_timer to ppm_timer_old
+		- set bit flag ppm_timer_incrementing
+		- increment ppm_timer
+		- clear bit flag ppm_timer_incrementing
+	    - ppm_input_interrupt
+		- read ppm_timer
+		- if bit flag ppm_timer_incrementing is set
+		    - compare ppm_timer with ppm_timer_old
+			- if same, increment readed ppm_timer value
+    - wakeup PPM_INPUT task
+	- read values from cyclic buffer
+	- compute PPM servo signals and assign them to ppm_in variables
+    - in menu set mapping of channels to PPM INPUT channels
+
+
+
+Some suggestions taken from manuals of other radios:
+
+programmable mixes
+throttle speed 1-3 SPEED 1-100%, trigger points 1-100
+throttle acceleration
+brake acceleration
+throttle curves EXP/VTR/CRV
+start function
+engine cut function
+ABS 
+    amount of brake return 0-100%
+    delay 0-1.4s
+    cycle speed 1-30
+    trigger point 10-100
+    cycle duty ratio -3..3
+    steering mixing N10-100, E10-100
+brake mixing
+boat tilt mixing
+neutral brake
+throttle mode FWD50/BRK50 or FWD70/BRK30
+throttle Idle-Up 0-50%
+
+
+other:
+PC editor
+digital/custom switches (set when some conditions are satisfied)
+
