@@ -21,7 +21,7 @@
 #define _LCD_INCLUDED
 
 
-#include "gt3b.h"
+#include "cr3p.h"
 
 
 // manipulating individual segments, pos is one of 128 segments

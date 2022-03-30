@@ -1,3 +1,9 @@
+
+*0.7.0 (28 June 2020)
+    modified original 0.6.2 for absima cr3p
+    adapted lcd segments
+    added code for power-button
+
 *0.6.2 ()
     added global option to select between 1 or 2 detents of rotate encoder,
 	which must be applied to change value

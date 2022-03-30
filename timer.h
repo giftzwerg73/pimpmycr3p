@@ -21,7 +21,7 @@
 #define _TIMER_INCLUDED
 
 
-#include "gt3b.h"
+#include "cr3p.h"
 
 
 // current time from power on, in seconds and 5ms steps

@@ -18,7 +18,7 @@ fi
 
 
 # manual, set FIRMWARE_END_ADDRESS to actual value
-FEA=$(perl -e "printf \"%x\", $(grep 'segment \.text' gt3b.map | head -n 1 | awk '{print "0x"$4}') - 1;");
+FEA=$(perl -e "printf \"%x\", $(grep 'segment \.text' cr3p.map | head -n 1 | awk '{print "0x"$4}') - 1;");
 NMODELS=$(( (0xffff - 0x$FEA) / 108 + 8 ))
 sed -e "s/FIRMWARE_END_ADDR/$FEA/" \
     -e "s/NUMBER_OF_MODELS/$NMODELS/" \
@@ -34,13 +34,13 @@ cp -p ChangeLog $R/ChangeLog.txt
 #for N in 3 8 6; do
 #    make clean
 #    make CHANNELS=$N || exit 2
-#    cp -p gt3b.s19 $R/gt3b-ch$N-$V.s19
-#    git add $R/gt3b-ch$N-$V.s19
+#    cp -p cr3p.s19 $R/cr3p-ch$N-$V.s19
+#    git add $R/cr3p-ch$N-$V.s19
 #done
 #
 # only one firmware now
-cp -p gt3b.s19 $R/gt3b-$V.s19
-git add $R/gt3b-$V.s19
+cp -p cr3p.s19 $R/cr3p-$V.s19
+git add $R/cr3p-$V.s19
 
 
 # commit generated firmwares

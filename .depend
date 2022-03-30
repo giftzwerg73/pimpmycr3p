@@ -1,34 +1,34 @@
 task.o: task.c  task.h stm8.h 
-main.o: main.c  gt3b.h stm8.h  task.h
-ppm.o: ppm.c   ppm.h gt3b.h stm8.h  task.h calc.h \
+main.o: main.c  cr3p.h stm8.h  task.h
+ppm.o: ppm.c   ppm.h cr3p.h stm8.h  task.h calc.h \
  config.h eeprom.h
-lcd.o: lcd.c   lcd.h gt3b.h stm8.h  task.h
-input.o: input.c  input.h gt3b.h stm8.h  task.h menu.h \
+lcd.o: lcd.c   lcd.h cr3p.h stm8.h  task.h
+input.o: input.c  input.h cr3p.h stm8.h  task.h menu.h \
  config.h eeprom.h calc.h lcd.h timer.h
-buzzer.o: buzzer.c  buzzer.h gt3b.h stm8.h  task.h config.h \
+buzzer.o: buzzer.c  buzzer.h cr3p.h stm8.h  task.h config.h \
  eeprom.h
-timer.o: timer.c  timer.h gt3b.h stm8.h  task.h lcd.h buzzer.h \
+timer.o: timer.c  timer.h cr3p.h stm8.h  task.h lcd.h buzzer.h \
  input.h menu.h config.h eeprom.h ppm.h calc.h
-eeprom.o: eeprom.c   eeprom.h config.h gt3b.h stm8.h  \
+eeprom.o: eeprom.c   eeprom.h config.h cr3p.h stm8.h  \
  task.h
-config.o: config.c   config.h gt3b.h stm8.h  task.h \
+config.o: config.c   config.h cr3p.h stm8.h  task.h \
  eeprom.h input.h
-calc.o: calc.c  calc.h gt3b.h stm8.h  task.h menu.h ppm.h \
+calc.o: calc.c  calc.h cr3p.h stm8.h  task.h menu.h ppm.h \
  config.h eeprom.h input.h timer.h
-menu_common.o: menu_common.c   menu.h gt3b.h stm8.h  \
+menu_common.o: menu_common.c   menu.h cr3p.h stm8.h  \
  task.h config.h eeprom.h ppm.h input.h lcd.h buzzer.h
-menu.o: menu.c   menu.h gt3b.h stm8.h  task.h config.h \
+menu.o: menu.c   menu.h cr3p.h stm8.h  task.h config.h \
  eeprom.h calc.h timer.h ppm.h lcd.h buzzer.h input.h
-menu_service.o: menu_service.c  menu.h gt3b.h stm8.h  task.h \
+menu_service.o: menu_service.c  menu.h cr3p.h stm8.h  task.h \
  config.h eeprom.h timer.h lcd.h buzzer.h input.h
-menu_global.o: menu_global.c  menu.h gt3b.h stm8.h  task.h \
+menu_global.o: menu_global.c  menu.h cr3p.h stm8.h  task.h \
  config.h eeprom.h timer.h lcd.h buzzer.h input.h version.h
-menu_popup.o: menu_popup.c   menu.h gt3b.h stm8.h  \
+menu_popup.o: menu_popup.c   menu.h cr3p.h stm8.h  \
  task.h config.h eeprom.h calc.h timer.h ppm.h lcd.h buzzer.h input.h
-menu_mix.o: menu_mix.c   menu.h gt3b.h stm8.h  task.h \
+menu_mix.o: menu_mix.c   menu.h cr3p.h stm8.h  task.h \
  config.h eeprom.h calc.h timer.h ppm.h lcd.h buzzer.h input.h
-menu_key.o: menu_key.c   menu.h gt3b.h stm8.h  task.h \
+menu_key.o: menu_key.c   menu.h cr3p.h stm8.h  task.h \
  config.h eeprom.h calc.h timer.h ppm.h lcd.h buzzer.h input.h
-menu_timer.o: menu_timer.c   menu.h gt3b.h stm8.h  \
+menu_timer.o: menu_timer.c   menu.h cr3p.h stm8.h  \
  task.h lcd.h config.h eeprom.h buzzer.h timer.h input.h
 vector.o: vector.c 

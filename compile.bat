@@ -1,5 +1,6 @@
-#@if "%TOOLSET%"=="" goto NoToolset
-@set TOOLSET=C:\COSMIC\FSE_Compilers\CXSTM8
+set TOOLSET=C:\COSMIC\FSE_Compilers\CXSTM8
+
+@if "%TOOLSET%"=="" goto NoToolset
 @if not "%CHANNELS%"=="" goto ChannelOK
 @set CHANNELS=8
 :ChannelOK
@@ -22,9 +23,9 @@
 %TOOLSET%/cxstm8 +warn +proto +mods0 +debug -i. -i%TOOLSET%/Hstm8 -l  -pxp -ac -dMAX_CHANNELS=%CHANNELS% menu_key.c
 %TOOLSET%/cxstm8 +warn +proto +mods0 +debug -i. -i%TOOLSET%/Hstm8 -l  -pxp -ac -dMAX_CHANNELS=%CHANNELS% menu_timer.c
 %TOOLSET%/cxstm8 +warn +proto +mods0 +debug -i. -i%TOOLSET%/Hstm8 -l  -pxp -ac -dMAX_CHANNELS=%CHANNELS% vector.c
-%TOOLSET%/clnk -l%TOOLSET%/Lib -o gt3b.sm8 -mgt3b.map compile.lkf
-%TOOLSET%/cvdwarf gt3b.sm8
-%TOOLSET%/chex -o gt3b.s19 gt3b.sm8
+%TOOLSET%/clnk -l%TOOLSET%/Lib -o cr3p.sm8 -mcr3p.map compile.lkf
+%TOOLSET%/cvdwarf cr3p.sm8
+%TOOLSET%/chex -o cr3p.s19 cr3p.sm8
 @goto:EOF
 
 :NoToolset

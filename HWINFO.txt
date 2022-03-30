@@ -31,9 +31,9 @@ processor pinout (i-input/o-output, f-floating/o-opencollector/p-push_pull, f-fa
     PF4         op  WR/ to LCD controller
     -----
     PD1         SWIM
-    PD5         ? UART TX
-    PD6         ? UART RX
-    PD7         ?
+    PD5         ip  button power
+    PD6         op  pwr hold
+    PD7         oof pwr led
 
 buttons matrix:
 	C5			C6			C7
