@@ -44,7 +44,7 @@ git add $R/cr3p-$V.s19
 
 
 # commit generated firmwares
-git ci -am "Release: version-$V"
+git commit -am "Release: version-$V"
 
 
 # tag this release
