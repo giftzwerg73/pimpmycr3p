@@ -1,5 +1,5 @@
 
-This is alternative firmware for model radio FlySky FS-GT3B/C and clones.
+This is alternative firmware for model radio Absima CR3P.
 This software comes with absolutely NO-WARRANTY.
 
 
@@ -99,5 +99,16 @@ To compile it at windows:
 - set variable TOOLSET to path to Cosmic C compiler (set TOOLSET=...)
 - if more than 3 channels needed, set variable CHANNELS to number 3..8
 - run compile.bat
-- file gt3b.s19 is newly compiled firmware ready to load to radio
+- file cr3p.s19 is newly compiled firmware ready to load to radio
+
+
+To compile under linux:
+
+- download STM8+Eclipse package for Linux from https://www.cosmicsoftware.com/download_stm8_eclipse.php
+- extract "stm8_toolchain_package.tar.gz" to somewhere. 
+- cd to project folder
+- edit TOOLSET var in Makefile.tool to ....stm8_toolchain_package/bin
+- export ....stm8_toolchain_package/bin to Path eg. run export PATH="/home/ms/cr3p/stm8_toolchain_package/bin:$PATH"
+- run make 
+- file cr3p.s19 is newly compiled firmware ready to load to radio
 

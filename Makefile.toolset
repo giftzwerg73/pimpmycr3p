@@ -1,0 +1,6 @@
+
+# toolset directory
+TOOLSET	= /home/ms/cr3p/stm8_toolchain_package/bin
+#TOOLSET = c:/sw/CXSTM8_32K
+
+

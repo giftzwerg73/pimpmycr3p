@@ -1,5 +1,5 @@
 
-PROGRAM	= gt3b
+PROGRAM	= cr3p
 SRCC	= task.c main.c ppm.c lcd.c input.c buzzer.c timer.c eeprom.c config.c calc.c menu_common.c menu.c menu_service.c menu_global.c menu_popup.c menu_mix.c menu_key.c menu_timer.c
 INTRS	= vector.c
 SMODE	= 

@@ -52,6 +52,6 @@ git tag version-$V
 
 
 # push it to github
-git push origin master
+git push origin main
 git push origin version-$V
 

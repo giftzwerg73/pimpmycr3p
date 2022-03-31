@@ -2,8 +2,8 @@
 # paths
 
 
-INCDIR	= $(TOOLSET)/Hstm8
-LIBDIR	= $(TOOLSET)/Lib
+INCDIR	= $(TOOLSET)/hstm8
+LIBDIR	= $(TOOLSET)/lib
 # in linux, use wine to call compiler
 ifdef WINEPREFIX
 export WINEPREFIX
@@ -117,5 +117,5 @@ compile.bat: Makefile Makefile.stm8
 	cp -p $(PROGRAM).lkf compile.lkf
 	sed -i -e "s|$(PROGRAM)\.lkf|compile.lkf|" $@
 	echo -e '@goto:EOF\n\n:NoToolset\n@echo TOOLSET variable is not set, set it with "set TOOLSET=path"' >>$@
-	sed -i -e 's|\(.*\)|\1|' $@
+	sed -i -e 's|\(.*\)|\1|' $@
 

@@ -24,7 +24,7 @@ Flashing firmware
 - load firmware "cr3p-VERSION.s19"
 - program it with "Program -> Address Range..."
     - set "Start @" to "8000"
-    - set "End @"   to "FIRMWARE_END_ADDR" (it is possible to find place where zeroes
+    - set "End @"   to "e7ca" (it is possible to find place where zeroes
 			       will start and use last non-zero address)
     - press "OK"
 - if "Program -> Current tab" will be used, all models stored at FLASH
@@ -34,7 +34,7 @@ Flashing firmware
 
 Global characteristics:
 =======================
-- NUMBER_OF_MODELS model memories, first 8 in EEPROM, rest in FLASH
+- 65 model memories, first 8 in EEPROM, rest in FLASH
     > numbers 10-19 will show with Right-Arrow
     > numbers 20-29 will show with Left-Arrow
     > numbers 30-39 will show with Left+Right-Arrows
